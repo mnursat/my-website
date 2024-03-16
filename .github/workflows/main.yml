@@ -1,28 +1,27 @@
 name: Publish 🚀
 
-on:
-  workflow_dispatch:
-  push:
-    branches:
-    - master
-    
+on: [push]
+
 env:
-  AZURE_WEBAPP_NAME: my-website-azure
-  AZURE_WEBAPP_PACKAGE_PATH: "."
+  AZURE_WEBAPP_NAME: my-website-azure    # set this to your application's name
+  AZURE_WEBAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
+  DOTNET_VERSION: '8.x.x'           # set this to the dot net version to use
 
 jobs:
-  publish:
+  build:
     runs-on: ubuntu-latest
-    
+
     steps:
-      - uses: actions/checkout@v3
+      # Checkout the repo
+      - uses: actions/checkout@main
       
-      - name: Setup .NET
+      # Setup .NET Core SDK
+      - name: Setup .NET Core
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: '8.x.x'
-          
-     # Run dotnet build and publish
+          dotnet-version: ${{ env.DOTNET_VERSION }} 
+      
+      # Run dotnet build and publish
       - name: dotnet build and publish
         run: |
           dotnet restore
