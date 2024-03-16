@@ -45,3 +45,12 @@ body {
         border-radius: 5px 5px;
         color: white !important;
     }
+
+.footer-icons {
+    color: gray;
+}
+
+    .footer-icons:hover {
+        cursor: pointer;
+        color: #000000;
+    }

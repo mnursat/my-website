@@ -13,15 +13,20 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-5">
             <div class="container justify-content-between">
-                <div class="container d-none d-lg-flex d-md-flex d-xl-flex">
+                <div class="container d-none d-lg-flex d-md-flex d-xl-flex ps-0">
                     <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
-                        <i class="fa-solid fa-kiwi-bird fa-flip" style="--fa-animation-duration: 4s;"></i>
+                        <i class="fa-solid fa-kiwi-bird fa-flip fa-lg" style="--fa-animation-duration: 4s;"></i>
                     </a>
                 </div>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+                <div class="d-sm-none">
+                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                        <i class="fa-solid fa-kiwi-bird fa-flip fa-lg" style="--fa-animation-duration: 4s;"></i>
+                    </a>
+                </div>
                 <div class="navbar-collapse collapse d-sm-inline-flex text-center">
                     <ul class="navbar-nav flex-grow-1 gap-2">
                         <li class="nav-item">
@@ -35,11 +40,6 @@
                         </li>
                     </ul>
                 </div>
-                <div class="d-sm-none">
-                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
-                        <i class="fa-solid fa-kiwi-bird fa-flip" style="--fa-animation-duration: 4s;"></i>
-                    </a>
-                </div>
             </div>
         </nav>
 
@@ -51,8 +51,23 @@
     </div>
 
     <footer class="border-top footer text-muted">
-        <div class="container justify-content-center align-content-center text-center">
-            &copy; 2024 - Makhsot Nursat Projects
+        <div class="container justify-content-center align-content-center">
+            <div class="row">
+                <div class="col">
+                    &copy; 2024 - Makhsot Nursat
+                </div>
+                <div class="col d-flex justify-content-end align-content-center align-items-center gap-3">
+                    <a href="https://github.com/mnursat" target="_blank">
+                        <i class="fa-brands fa-github fa-lg footer-icons"></i>
+                    </a>
+                    <a href="#">
+                        <i class="fa-brands fa-linkedin fa-lg footer-icons"></i>
+                    </a>
+                    <a href="mailto:nursatmakhsot@gmail.com">
+                        <i class="fa-solid fa-envelope fa-lg footer-icons"></i>
+                    </a>
+                </div>
+            </div>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
