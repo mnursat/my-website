@@ -22,18 +22,17 @@ jobs:
         with:
           dotnet-version: '8.x.x'
           
-      - name: Restore
-        run: dotnet restore ./MyWebsite.sln
-        
-      - name: Build
-        run: dotnet build ./MyWebsite.sln --configuration Release --no-restore
-        
-      - name: Publish
-        run: dotnet publish ./MyWebsite.sln --configuration Release --no-build
-
-      - name: Deployment
+     # Run dotnet build and publish
+      - name: dotnet build and publish
+        run: |
+          dotnet restore
+          dotnet build --configuration Release
+          dotnet publish -c Release --property:PublishDir='${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/myapp' 
+          
+      # Deploy to Azure Web apps
+      - name: 'Run Azure webapp deploy action using publish profile credentials'
         uses: azure/webapps-deploy@v3
-        with:
-          app-name: ${{ env.AZURE_WEBAPP_NAME }}
-          publish-profile: ${{ secrets.AZURE_PUBLISH_PROFILE }}
-          package: "${{ env.AZURE_WEBAPP_PACKAGE_PATH }}"
+        with: 
+          app-name: ${{ env.AZURE_WEBAPP_NAME }} # Replace with your app name
+          publish-profile: ${{ secrets.AZURE_PUBLISH_PROFILE  }} # Define secret variable in repository settings as per action documentation
+          package: '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/myapp'
