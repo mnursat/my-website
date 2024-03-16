@@ -34,11 +34,11 @@ body {
     }
 }
 
-.grow {
+.grow-header-text {
     transition: all .3s ease-in-out;
 }
 
-    .grow:hover {
+    .grow-header-text:hover {
         background-color: white;
         transform: scale(1.1);
         background-color: green;

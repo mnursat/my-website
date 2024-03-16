@@ -1,0 +1,11 @@
+﻿body {
+}
+
+.grow {
+    transition: all .3s ease-in-out;
+}
+
+    .grow:hover {
+        background-color: white;
+        transform: scale(1.05);
+    }
