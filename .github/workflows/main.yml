@@ -24,13 +24,13 @@ jobs:
           dotnet-version: ${{ env.DOTNET_VERSION }}
           
       - name: Restore
-        run: dotnet restore MyWebsite/MyWebsite.sln
+        run: dotnet restore ./MyWebsite.sln
         
       - name: Build
-        run: dotnet build MyWebsite/MyWebsite.sln --configuration Release --no-restore
+        run: dotnet build ./MyWebsite.sln --configuration Release --no-restore
         
       - name: Publish
-        run: dotnet publish MyWebsite/MVC/MVC.csproj--configuration Release --no-build --output '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}'
+        run: dotnet publish ./MVC/MVC.csproj--configuration Release --no-build --output '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}'
         
       - name: Deployment
         uses: azure/webapps-deploy@v3
