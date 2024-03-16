@@ -24,10 +24,10 @@ jobs:
           dotnet-version: ${{ env.DOTNET_VERSION }}
           
       - name: Restore
-        run: dotnet restore ./MyWebsite.sln
+        run: dotnet restore MyWebsite/MyWebsite.sln
         
       - name: Build
-        run: dotnet build MyWebsite./MyWebsite.sln --configuration Release --no-restore
+        run: dotnet build MyWebsite/MyWebsite.sln --configuration Release --no-restore
         
       - name: Publish
         run: dotnet publish MyWebsite/MVC/MVC.csproj--configuration Release --no-build --output '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}'
