@@ -1,22 +1,21 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace MVC.Controllers
+namespace MVC.Controllers;
+
+public class HomeController : Controller
 {
-    public class HomeController : Controller
+    public IActionResult Index()
     {
-        public IActionResult Index()
-        {
-            return View();
-        }
+        return View();
+    }
 
-        public IActionResult Contact()
-        {
-            return View();
-        }
+    public IActionResult Contact()
+    {
+        return View();
+    }
 
-        public IActionResult Projects()
-        {
-            return View();
-        }
+    public IActionResult Projects()
+    {
+        return View();
     }
 }
